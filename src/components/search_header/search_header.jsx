@@ -1,9 +1,8 @@
 import styles from './search_header.module.css';
-
 import React from 'react';
 import { useRef } from 'react/cjs/react.development';
 
-const Search_header = ({ onSearch }) => {
+const SearchHeader = ({ onSearch }) => {
     const inputRef = useRef();
     const handleSearch = () => {
         const value = inputRef.current.value;
@@ -44,4 +43,4 @@ const Search_header = ({ onSearch }) => {
     );
 };
 
-export default Search_header;
+export default SearchHeader;
