@@ -1,22 +1,34 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import VideoItem from '../video_item/video_item';
 import styles from './video_list.module.css';
 
-const VideoList = (props) => {
-    const fakeData = {};
-    for (let i = 1; i < 21; i++) {
-        fakeData[i] = {
-            videoTitle: 'lalala',
-            channelTitle: 'abcStudio',
-        };
-    }
+const VideoList = ({ youtubeFetch }) => {
+    const [videos, setVideos] = useState({});
+
+    useEffect(() => {
+        youtubeFetch //
+            .mostPopular() //
+            .then((result) => {
+                const updated = { ...videos };
+                result.forEach((video) => {
+                    updated[video.id] = {
+                        videoTitle: video.snippet.title,
+                        channelTitle: video.snippet.channelTitle,
+                        thumbnails: video.snippet.thumbnails,
+                    };
+                });
+                setVideos(updated);
+            });
+    }, [youtubeFetch]);
+
     return (
         <ul className={styles.videoList}>
-            {Object.keys(fakeData).map((key) => (
+            {Object.keys(videos).map((key) => (
                 <VideoItem
                     key={key}
-                    videoTitle={fakeData[key].videoTitle}
-                    channelTitle={fakeData[key].channelTitle}
+                    thumbnails={videos[key].thumbnails}
+                    videoTitle={videos[key].videoTitle}
+                    channelTitle={videos[key].channelTitle}
                 />
             ))}
         </ul>
