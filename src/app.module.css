@@ -12,6 +12,18 @@
     justify-content: flex-end;
 }
 
+.selected {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 100%;
+}
+
 .videoDetail {
+    height: 100%;
+    width: 65%;
+}
+
+.videoComment {
     height: 100%;
 }

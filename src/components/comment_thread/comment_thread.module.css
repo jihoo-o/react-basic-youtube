@@ -1,0 +1,6 @@
+.commentList {
+    height: 100%;
+    padding-left: 0;
+    list-style: none;
+    overflow-y: scroll;
+}

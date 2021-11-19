@@ -8,8 +8,6 @@ const VideoItem = ({
     channelTitle,
     onVideoClick,
 }) => {
-    const handleSelectVideo = () => {};
-
     return (
         <li className={styles.container}>
             <div
