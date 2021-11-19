@@ -1,7 +1,17 @@
 .videoList {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
     padding-left: 0;
     margin-top: 0;
+}
+
+.nowrap {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    margin-bottom: 0;
+}
+
+.wrap {
+    flex-wrap: wrap;
 }
