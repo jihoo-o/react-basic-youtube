@@ -7,9 +7,14 @@ const VideoItem = ({
     videoTitle,
     channelTitle,
     onVideoClick,
+    displayType,
 }) => {
     return (
-        <li className={styles.container}>
+        <li
+            className={`${styles.container} ${
+                displayType === 'nowrap' ? styles.nowrap : styles.wrap
+            }`}
+        >
             <div
                 className={styles.thumbnail}
                 onClick={() => onVideoClick(videoId)}

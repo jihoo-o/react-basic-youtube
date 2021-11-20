@@ -2,12 +2,11 @@
     width: 100%;
     max-width: 80rem;
     height: 100%;
-    padding-top: 13%;
 }
 
 .iframeWrapper {
     position: relative;
-    padding-bottom: 50%;
+    padding-bottom: 56.25%;
     height: 0;
 }
 

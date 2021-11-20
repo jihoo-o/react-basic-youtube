@@ -35,6 +35,7 @@ const VideoList = ({ youtubeFetch, onVideoClick, displayType }) => {
                     videoTitle={videos[key].videoTitle}
                     channelTitle={videos[key].channelTitle}
                     onVideoClick={onVideoClick}
+                    displayType={displayType}
                 />
             ))}
         </ul>

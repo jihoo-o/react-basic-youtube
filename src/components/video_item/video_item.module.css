@@ -6,9 +6,15 @@
     flex-grow: 1;
     height: 33vh;
     min-width: 17rem;
-    max-width: 22rem;
+    max-width: 20rem;
     padding: 0.5rem;
     /* margin-top: 1.5rem; */
+}
+
+.nowrap {
+    height: 25vh;
+    min-width: 15rem;
+    font-size: 0.9em;
 }
 
 .thumbnail {
