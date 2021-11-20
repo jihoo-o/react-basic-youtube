@@ -1,0 +1,65 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.selected {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+}
+
+.videoDetail {
+    background-color: red;
+    width: 75%;
+}
+
+.videoDetail .iframeArea {
+    background-color: blue;
+    width: 100%;
+    height: 100%;
+}
+
+.videoDetail .iframeWrapper {
+    background-color: black;
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+}
+
+.videoDetail iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.videoComment {
+    background-color: orange;
+    width: 25%;
+}
+
+.videoList {
+    background-color: yellow;
+    height: 15rem;
+}
+
+.videoList ul {
+    display: flex;
+    overflow-x: scroll;
+    list-style: none;
+    padding-left: 0;
+}
+
+.videoList li {
+    width: 20rem;
+}
+
+.videoList img {
+    background-color: green;
+    width: 10rem;
+    height: 10rem;
+}

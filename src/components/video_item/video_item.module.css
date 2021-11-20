@@ -1,18 +1,19 @@
 .container {
-    flex-grow: 1;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    height: 100%;
+    /* justify-content: space-between; */
+    /* align-items: flex-start; */
+    flex-grow: 1;
+    height: 33vh;
     min-width: 17rem;
     max-width: 22rem;
     padding: 0.5rem;
-    margin-top: 1.5rem;
+    /* margin-top: 1.5rem; */
 }
 
 .thumbnail {
     width: 100%;
-    height: 80%;
+    height: 65%;
     background-color: goldenrod;
 }
 
@@ -27,12 +28,14 @@
 
 .description {
     width: 100%;
-    height: 20%;
+    height: 35%;
 }
 
 .title {
     font-size: 1.1em;
-    margin: 0.5rem 0;
+    font-weight: bold;
+    padding: 0.6rem 0 0.2rem 0;
+    margin: 0;
 }
 
 .title:hover {
