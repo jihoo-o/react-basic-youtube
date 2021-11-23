@@ -1,0 +1,23 @@
+.container {
+    margin-bottom: 1.6rem;
+}
+
+.author {
+    font-size: 1em;
+    font-weight: bold;
+    margin: 0;
+}
+
+.text {
+    font-size: 0.9em;
+    margin: 0.3rem 0;
+}
+
+.like {
+    font-size: 0.6em;
+    margin-right: 0.5rem;
+}
+
+.likeCount {
+    font-size: 0.8em;
+}
