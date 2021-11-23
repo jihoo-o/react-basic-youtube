@@ -34,23 +34,29 @@ const App = ({ youtubeFetch }) => {
                 selectedVideo ? styles.nowrap : styles.wrap
             }`}
         >
-            {selectedVideo && (
-                <div className={styles.selected}>
-                    <section className={styles.videoDetail}>
-                        <VideoDetail videoId={selectedVideo} />
-                    </section>
-                    <section className={styles.videoComment}>
-                        <CommentThread comments={comments} />
-                    </section>
-                </div>
-            )}
-            <section className={styles.videoList}>
-                <VideoList
-                    youtubeFetch={youtubeFetch}
-                    onVideoClick={selectVideo}
-                    displayType={selectedVideo ? 'nowrap' : 'wrap'}
-                />
-            </section>
+            <div className={styles.containerFlex}>
+                {selectedVideo && (
+                    <div className={styles.selected}>
+                        <section className={styles.videoDetail}>
+                            <div className={styles.iframeArea}>
+                                <div className={styles.iframeWrapper}>
+                                    <VideoDetail videoId={selectedVideo} />
+                                </div>
+                            </div>
+                        </section>
+                        <section className={styles.videoComment}>
+                            <CommentThread comments={comments} />
+                        </section>
+                    </div>
+                )}
+                <section className={styles.videoList}>
+                    <VideoList
+                        youtubeFetch={youtubeFetch}
+                        onVideoClick={selectVideo}
+                        displayType={selectedVideo ? 'nowrap' : 'wrap'}
+                    />
+                </section>
+            </div>
         </div>
     );
 };

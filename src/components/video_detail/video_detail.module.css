@@ -1,15 +1,3 @@
-.container {
-    width: 100%;
-    max-width: 80rem;
-    height: 100%;
-}
-
-.iframeWrapper {
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-}
-
 .iframe {
     position: absolute;
     top: 0;

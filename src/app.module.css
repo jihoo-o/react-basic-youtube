@@ -1,6 +1,14 @@
 .container {
+    /* display: flex;
+    flex-direction: column; */
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.containerFlex {
     display: flex;
     flex-direction: column;
+    /* justify-content: space-between; */
     height: 100%;
 }
 
@@ -14,9 +22,7 @@
 
 .selected {
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    height: 70%;
+    height: 73%;
 }
 
 .videoDetail {
@@ -31,5 +37,18 @@
 }
 
 .videoList {
-    height: 30%;
+    height: 100%;
+}
+
+/*  */
+.iframeArea {
+    width: 100%;
+    max-width: 80rem;
+    height: 100%;
+}
+
+.iframeWrapper {
+    position: relative;
+    padding-bottom: 55.25%;
+    height: 0;
 }
