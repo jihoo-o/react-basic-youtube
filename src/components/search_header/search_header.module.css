@@ -1,0 +1,51 @@
+.searchHeader {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0 3rem;
+    background-color: white;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    margin-right: 5rem;
+}
+
+.img {
+    height: 27px;
+    width: 34px;
+    margin-right: 1px;
+}
+
+.title {
+    font-size: 25px;
+}
+
+.img,
+.title:hover {
+    cursor: pointer;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.searchInput {
+    flex-grow: 1;
+    max-width: 40rem;
+    height: 38px;
+    padding-left: 0.5rem;
+}
+
+.searchBtn {
+    width: 50px;
+    height: 38px;
+}
+
+.searchBtn img {
+    width: 100%;
+    height: 100%;
+}

@@ -6,7 +6,6 @@ const CommentThread = ({ comments }) => {
     const commentListRef = useRef();
 
     useEffect(() => {
-        console.log(commentListRef.current);
         commentListRef.current.scrollTo(0, 0);
     }, [comments]);
 

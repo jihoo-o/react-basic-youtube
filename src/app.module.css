@@ -8,7 +8,6 @@
 .containerFlex {
     display: flex;
     flex-direction: column;
-    /* justify-content: space-between; */
     height: 100%;
 }
 
@@ -18,11 +17,19 @@
 
 .nowrap {
     justify-content: flex-end;
+    overflow-y: hidden;
+}
+
+.searchHeader {
+    position: -webkit-sticky;
+    position: sticky;
+    z-index: 1;
+    top: 0;
 }
 
 .selected {
     display: flex;
-    height: 73%;
+    height: 65%;
 }
 
 .videoDetail {
@@ -49,6 +56,6 @@
 
 .iframeWrapper {
     position: relative;
-    padding-bottom: 55.25%;
+    padding-bottom: 48.5%;
     height: 0;
 }
