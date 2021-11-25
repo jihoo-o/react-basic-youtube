@@ -22,6 +22,17 @@ class YoutubeFetch {
         ).then((response) => response.json());
         return result.items;
     }
+
+    async search(word) {
+        const result = await fetch(
+            `https://www.googleapis.com/youtube/v3/search/?part=snippet&maxResults=25&q=${word}&type=video&key=${this.key}`,
+            this.requestOptions
+        ).then((response) => response.json());
+        return result.items.map((item) => ({
+            ...item,
+            id: item.id.videoId,
+        }));
+    }
 }
 
 export default YoutubeFetch;

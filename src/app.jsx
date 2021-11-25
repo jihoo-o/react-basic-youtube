@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import VideoList from './components/video_list/video_list';
 import styles from './app.module.css';
 import VideoDetail from './components/video_detail/video_detail';
@@ -16,11 +16,16 @@ const App = ({ youtubeFetch }) => {
             : setSelectedVideo(null);
     };
 
-    useEffect(() => {
+    const handleLogoClick = () => {
+        loadPopularVideos();
+        selectVideo(null);
+    };
+
+    const loadPopularVideos = useCallback(() => {
         youtubeFetch //
             .mostPopular() //
             .then((result) => {
-                const updated = { ...videos };
+                const updated = {};
                 result.forEach((video) => {
                     updated[video.id] = {
                         videoTitle: video.snippet.title,
@@ -30,6 +35,26 @@ const App = ({ youtubeFetch }) => {
                 });
                 setVideos(updated);
             });
+    });
+
+    const search = (word) => {
+        youtubeFetch //
+            .search(word) //
+            .then((result) => {
+                const updated = {};
+                result.forEach((video) => {
+                    updated[video.id] = {
+                        videoTitle: video.snippet.title,
+                        channelTitle: video.snippet.channelTitle,
+                        thumbnails: video.snippet.thumbnails,
+                    };
+                });
+                setVideos(updated);
+            });
+    };
+
+    useEffect(() => {
+        loadPopularVideos();
     }, [youtubeFetch]);
 
     useEffect(async () => {
@@ -50,7 +75,7 @@ const App = ({ youtubeFetch }) => {
     return (
         <>
             <header className={styles.searchHeader}>
-                <SearchHeader onLogoClick={selectVideo} />
+                <SearchHeader onLogoClick={handleLogoClick} onSearch={search} />
             </header>
             <div
                 className={`${styles.container} ${
