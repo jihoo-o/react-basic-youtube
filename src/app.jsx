@@ -8,12 +8,29 @@ import SearchHeader from './components/search_header/search_header';
 const App = ({ youtubeFetch }) => {
     const [selectedVideo, setSelectedVideo] = useState(null);
     const [comments, setComments] = useState({});
+    const [videos, setVideos] = useState({});
 
     const selectVideo = (video) => {
         typeof video === 'string'
             ? setSelectedVideo(video)
             : setSelectedVideo(null);
     };
+
+    useEffect(() => {
+        youtubeFetch //
+            .mostPopular() //
+            .then((result) => {
+                const updated = { ...videos };
+                result.forEach((video) => {
+                    updated[video.id] = {
+                        videoTitle: video.snippet.title,
+                        channelTitle: video.snippet.channelTitle,
+                        thumbnails: video.snippet.thumbnails,
+                    };
+                });
+                setVideos(updated);
+            });
+    }, [youtubeFetch]);
 
     useEffect(async () => {
         if (!selectedVideo) return;
@@ -57,7 +74,7 @@ const App = ({ youtubeFetch }) => {
                     )}
                     <section className={styles.videoList}>
                         <VideoList
-                            youtubeFetch={youtubeFetch}
+                            videos={videos}
                             onVideoClick={selectVideo}
                             displayType={selectedVideo ? 'nowrap' : 'wrap'}
                         />
