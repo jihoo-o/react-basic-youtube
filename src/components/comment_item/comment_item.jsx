@@ -2,10 +2,6 @@ import React, { useEffect } from 'react';
 import styles from './comment_item.module.css';
 
 const CommentItem = ({ id, comment }) => {
-    // useEffect(() => {
-    //     window.scrollTo(0, 0);
-    // }, []);
-
     return (
         <li key={id} className={styles.container}>
             <p className={styles.author}>{comment.authorDisplayName}</p>

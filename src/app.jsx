@@ -10,16 +10,16 @@ const App = ({ youtubeFetch }) => {
     const [comments, setComments] = useState({});
     const [videos, setVideos] = useState({});
 
-    const selectVideo = (video) => {
+    const selectVideo = useCallback((video) => {
         typeof video === 'string'
             ? setSelectedVideo(video)
             : setSelectedVideo(null);
-    };
+    });
 
-    const handleLogoClick = () => {
+    const handleLogoClick = useCallback(() => {
         loadPopularVideos();
         selectVideo(null);
-    };
+    });
 
     const loadPopularVideos = useCallback(() => {
         youtubeFetch //
@@ -37,7 +37,7 @@ const App = ({ youtubeFetch }) => {
             });
     });
 
-    const search = (word) => {
+    const search = useCallback((word) => {
         youtubeFetch //
             .search(word) //
             .then((result) => {
@@ -51,7 +51,7 @@ const App = ({ youtubeFetch }) => {
                 });
                 setVideos(updated);
             });
-    };
+    });
 
     useEffect(() => {
         loadPopularVideos();
