@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from './search_header.module.css';
 
-const SearchHeader = (props) => {
+const SearchHeader = ({ onLogoClick }) => {
     return (
         <form className={styles.searchHeader}>
-            <div className={styles.logo}>
+            <div className={styles.logo} onClick={onLogoClick}>
                 <img className={styles.img} src="/images/logo.png" alt="logo" />
                 <h1 className={styles.title}>Youtube</h1>
             </div>

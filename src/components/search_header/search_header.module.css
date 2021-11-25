@@ -12,6 +12,10 @@
     margin-right: 5rem;
 }
 
+.logo:hover {
+    cursor: pointer;
+}
+
 .img {
     height: 27px;
     width: 34px;
@@ -20,11 +24,6 @@
 
 .title {
     font-size: 25px;
-}
-
-.img,
-.title:hover {
-    cursor: pointer;
 }
 
 .search {

@@ -10,7 +10,9 @@ const App = ({ youtubeFetch }) => {
     const [comments, setComments] = useState({});
 
     const selectVideo = (video) => {
-        setSelectedVideo(video);
+        typeof video === 'string'
+            ? setSelectedVideo(video)
+            : setSelectedVideo(null);
     };
 
     useEffect(async () => {
@@ -31,7 +33,7 @@ const App = ({ youtubeFetch }) => {
     return (
         <>
             <header className={styles.searchHeader}>
-                <SearchHeader />
+                <SearchHeader onLogoClick={selectVideo} />
             </header>
             <div
                 className={`${styles.container} ${
