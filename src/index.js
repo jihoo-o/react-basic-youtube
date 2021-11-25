@@ -2,15 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './app';
 import './index.css';
-import YoutubeFetch from './service/youtube-fetch';
-import Ui from './test/ui';
+import axios from 'axios';
+import Youtube from './service/youtube';
 
-const youtubeFetch = new YoutubeFetch(process.env.REACT_APP_YOUTUBE_API_KEY);
+const httpClient = axios.create({
+    baseURL: 'https://www.googleapis.com/youtube/v3',
+    params: { key: process.env.REACT_APP_YOUTUBE_API_KEY },
+});
+
+const youtube = new Youtube(httpClient);
 
 ReactDOM.render(
     <React.StrictMode>
-        <App youtubeFetch={youtubeFetch} />
-        {/* <Ui /> */}
+        <App youtube={youtube} />
     </React.StrictMode>,
     document.getElementById('root')
 );

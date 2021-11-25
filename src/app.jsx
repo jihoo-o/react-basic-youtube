@@ -5,7 +5,7 @@ import VideoDetail from './components/video_detail/video_detail';
 import CommentThread from './components/comment_thread/comment_thread';
 import SearchHeader from './components/search_header/search_header';
 
-const App = ({ youtubeFetch }) => {
+const App = ({ youtube }) => {
     const [selectedVideo, setSelectedVideo] = useState(null);
     const [comments, setComments] = useState({});
     const [videos, setVideos] = useState({});
@@ -22,7 +22,7 @@ const App = ({ youtubeFetch }) => {
     });
 
     const loadPopularVideos = useCallback(() => {
-        youtubeFetch //
+        youtube //
             .mostPopular() //
             .then((result) => {
                 const updated = {};
@@ -38,7 +38,7 @@ const App = ({ youtubeFetch }) => {
     });
 
     const search = useCallback((word) => {
-        youtubeFetch //
+        youtube //
             .search(word) //
             .then((result) => {
                 const updated = {};
@@ -55,11 +55,11 @@ const App = ({ youtubeFetch }) => {
 
     useEffect(() => {
         loadPopularVideos();
-    }, [youtubeFetch]);
+    }, [youtube]);
 
     useEffect(async () => {
         if (!selectedVideo) return;
-        const result = await youtubeFetch.videoComment(selectedVideo);
+        const result = await youtube.videoComment(selectedVideo);
         const updated = {};
         result.forEach((item) => {
             const snippet = item.snippet.topLevelComment.snippet;
@@ -70,7 +70,7 @@ const App = ({ youtubeFetch }) => {
             };
         });
         setComments(updated);
-    }, [youtubeFetch, selectedVideo]);
+    }, [youtube, selectedVideo]);
 
     return (
         <>
